@@ -1,0 +1,74 @@
+services:
+  broker:
+    container_name: ${RABBITMQ_CONTAINER_NAME}
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    ports:
+      - ${RABBITMQ_AMQP_PORT}:${RABBITMQ_AMQP_PORT}
+      - ${RABBITMQ_ADMIN_PORT}:${RABBITMQ_ADMIN_PORT}
+    restart: ${RABBITMQ_RESTART}
+    healthcheck:
+      test: rabbitmq-diagnostics -q status
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  database:
+    container_name: ${MONGO_CONTAINER_NAME}
+    image: mongo:4.4
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    command: mongod --quiet --logpath /dev/null
+    ports:
+      - ${MONGO_INITDB_PORT}:${MONGO_INITDB_PORT}
+    volumes:
+      - codexgo-database:/data/db
+    restart: ${MONGO_RESTART}
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongo admin -u ${MONGO_INITDB_ROOT_USERNAME} -p ${MONGO_INITDB_ROOT_PASSWORD} --quiet | grep 1
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  server:
+    container_name: ${SERVER_CONTAINER_NAME}
+    image: ${SERVER_IMAGE_TAG}
+    build:
+      context: ..
+      dockerfile: deployments/Dockerfile
+      target: ${SERVER_BUILD_TARGET}
+    environment:
+      BROKER_URI: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@broker:${RABBITMQ_AMQP_PORT}"
+      DATABASE_URI: "mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@database:${MONGO_INITDB_PORT}"
+      SMTP_HOST: ${SERVER_SMTP_HOST}
+      SMTP_PORT: ${SERVER_SMTP_PORT}
+      SMTP_USERNAME: ${SERVER_SMTP_USERNAME}
+      SMTP_PASSWORD: ${SERVER_SMTP_PASSWORD}
+      JWT_SECRET_KEY: ${SERVER_JWT_SECRET_KEY}
+      ALLOWED_HOSTS: ${SERVER_ALLOWED_HOSTS}
+      URL: ${SERVER_URL}
+      GIN_MODE: ${SERVER_MODE}
+      PORT: ${SERVER_PORT}
+    command: ${SERVER_COMMAND}
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    volumes:
+      - ${SERVER_VOLUMES_APP}
+      - codexgo-modules:/go/pkg/mod
+    restart: ${SERVER_RESTART}
+    depends_on:
+      broker:
+        condition: service_healthy
+      database:
+        condition: service_healthy
+
+volumes:
+  codexgo-database:
+    name: ${DATABASE_VOLUME}
+  codexgo-server:
+    name: codexgo-server
+  codexgo-modules:
+    name: codexgo-modules
