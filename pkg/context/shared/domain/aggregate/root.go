@@ -1,7 +1,7 @@
 package aggregate
 
 import (
-	"github.com/bastean/codexgo/pkg/context/shared/domain/message"
+	"github.com/bastean/bingo/pkg/context/shared/domain/message"
 )
 
 type AggregateRoot struct {

@@ -1,8 +1,8 @@
 package router
 
 import (
-	"github.com/bastean/codexgo/pkg/cmd/server/handler"
-	"github.com/bastean/codexgo/pkg/cmd/server/middleware"
+	"github.com/bastean/bingo/pkg/cmd/server/handler"
+	"github.com/bastean/bingo/pkg/cmd/server/middleware"
 )
 
 func InitRoutes() {

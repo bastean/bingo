@@ -4,12 +4,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bastean/codexgo/pkg/context/shared/infrastructure/persistence/database"
-	aggregateMother "github.com/bastean/codexgo/pkg/context/user/domain/aggregate/mother"
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
-	valueObjectMother "github.com/bastean/codexgo/pkg/context/user/domain/valueObject/mother"
-	cryptographicMock "github.com/bastean/codexgo/pkg/context/user/infrastructure/cryptographic/mock"
-	"github.com/bastean/codexgo/pkg/context/user/infrastructure/persistence"
+	"github.com/bastean/bingo/pkg/context/shared/infrastructure/persistence/database"
+	aggregateMother "github.com/bastean/bingo/pkg/context/user/domain/aggregate/mother"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
+	valueObjectMother "github.com/bastean/bingo/pkg/context/user/domain/valueObject/mother"
+	cryptographicMock "github.com/bastean/bingo/pkg/context/user/infrastructure/cryptographic/mock"
+	"github.com/bastean/bingo/pkg/context/user/infrastructure/persistence"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -21,7 +21,7 @@ type UserMongoRepositoryTestSuite struct {
 
 func (suite *UserMongoRepositoryTestSuite) SetupTest() {
 	uri := os.Getenv("DATABASE_URI")
-	databaseName := "codexgo-test"
+	databaseName := "bingo-test"
 	database := database.NewMongoDatabase(uri, databaseName)
 	collectionName := "users-test"
 	suite.hashing = cryptographicMock.NewHashingMock()

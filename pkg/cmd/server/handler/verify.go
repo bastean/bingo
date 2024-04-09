@@ -3,8 +3,8 @@ package handler
 import (
 	"net/http"
 
-	"github.com/bastean/codexgo/pkg/cmd/server/service/user"
-	"github.com/bastean/codexgo/pkg/context/user/application/verify"
+	"github.com/bastean/bingo/pkg/cmd/server/service/user"
+	"github.com/bastean/bingo/pkg/context/user/application/verify"
 	"github.com/gin-gonic/gin"
 )
 

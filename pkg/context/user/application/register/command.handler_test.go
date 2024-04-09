@@ -3,11 +3,11 @@ package register_test
 import (
 	"testing"
 
-	communicationMock "github.com/bastean/codexgo/pkg/context/shared/infrastructure/communication/mock"
-	"github.com/bastean/codexgo/pkg/context/user/application/register"
-	commandMother "github.com/bastean/codexgo/pkg/context/user/application/register/mother"
-	"github.com/bastean/codexgo/pkg/context/user/domain/aggregate"
-	persistenceMock "github.com/bastean/codexgo/pkg/context/user/infrastructure/persistence/mock"
+	communicationMock "github.com/bastean/bingo/pkg/context/shared/infrastructure/communication/mock"
+	"github.com/bastean/bingo/pkg/context/user/application/register"
+	commandMother "github.com/bastean/bingo/pkg/context/user/application/register/mother"
+	"github.com/bastean/bingo/pkg/context/user/domain/aggregate"
+	persistenceMock "github.com/bastean/bingo/pkg/context/user/infrastructure/persistence/mock"
 	"github.com/stretchr/testify/suite"
 )
 

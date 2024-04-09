@@ -1,6 +1,6 @@
 package verify
 
-import "github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
+import "github.com/bastean/bingo/pkg/context/user/domain/valueObject"
 
 type CommandHandler struct {
 	*Verify

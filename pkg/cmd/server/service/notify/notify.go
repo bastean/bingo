@@ -3,8 +3,8 @@ package notify
 import (
 	"os"
 
-	"github.com/bastean/codexgo/pkg/context/notify/application/sendMail"
-	"github.com/bastean/codexgo/pkg/context/notify/infrastructure/communication"
+	"github.com/bastean/bingo/pkg/context/notify/application/sendMail"
+	"github.com/bastean/bingo/pkg/context/notify/infrastructure/communication"
 )
 
 var host = os.Getenv("SMTP_HOST")

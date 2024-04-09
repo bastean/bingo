@@ -3,11 +3,11 @@ package delete_test
 import (
 	"testing"
 
-	"github.com/bastean/codexgo/pkg/context/user/application/delete"
-	commandMother "github.com/bastean/codexgo/pkg/context/user/application/delete/mother"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
-	cryptographicMock "github.com/bastean/codexgo/pkg/context/user/infrastructure/cryptographic/mock"
-	persistenceMock "github.com/bastean/codexgo/pkg/context/user/infrastructure/persistence/mock"
+	"github.com/bastean/bingo/pkg/context/user/application/delete"
+	commandMother "github.com/bastean/bingo/pkg/context/user/application/delete/mother"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
+	cryptographicMock "github.com/bastean/bingo/pkg/context/user/infrastructure/cryptographic/mock"
+	persistenceMock "github.com/bastean/bingo/pkg/context/user/infrastructure/persistence/mock"
 	"github.com/stretchr/testify/suite"
 )
 

@@ -1,8 +1,8 @@
 package queryMother
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/application/login"
-	valueObjectMother "github.com/bastean/codexgo/pkg/context/user/domain/valueObject/mother"
+	"github.com/bastean/bingo/pkg/context/user/application/login"
+	valueObjectMother "github.com/bastean/bingo/pkg/context/user/domain/valueObject/mother"
 )
 
 func Random() *login.Query {

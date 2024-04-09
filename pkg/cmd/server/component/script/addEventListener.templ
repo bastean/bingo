@@ -2,23 +2,23 @@ package script
 
 script AddEventListener(PutAuthorization, DeleteAuthorization string) {
     document.addEventListener('alpine:init', () => {
-        Alpine.store('codexgo', {
-            codexgo_jwt: Alpine.$persist(""),
-            getJWT () { return this.codexgo_jwt.initialValue },
-            setJWT (token) { this.codexgo_jwt = Alpine.$persist(token) }
+        Alpine.store('bingo', {
+            bingo_jwt: Alpine.$persist(""),
+            getJWT () { return this.bingo_jwt.initialValue },
+            setJWT (token) { this.bingo_jwt = Alpine.$persist(token) }
         })
     })
 
     document.addEventListener('htmx:configRequest', function(evt) {
-        evt.detail.headers['Authorization'] = Alpine.store('codexgo').getJWT()
+        evt.detail.headers['Authorization'] = Alpine.store('bingo').getJWT()
     });
 
     document.addEventListener(PutAuthorization, function(evt) {
         const token = evt.detail.value
-        Alpine.store('codexgo').setJWT(token)
+        Alpine.store('bingo').setJWT(token)
     });
 
     document.addEventListener(DeleteAuthorization, function(evt) {
-        Alpine.store('codexgo').setJWT("")
+        Alpine.store('bingo').setJWT("")
     });
 }

@@ -1,7 +1,7 @@
 package cryptographic
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
 	"golang.org/x/crypto/bcrypt"
 )
 

@@ -1,7 +1,7 @@
 package valueObject
 
 import (
-	sharedValueObject "github.com/bastean/codexgo/pkg/context/shared/domain/valueObject"
+	sharedValueObject "github.com/bastean/bingo/pkg/context/shared/domain/valueObject"
 )
 
 type Email struct {

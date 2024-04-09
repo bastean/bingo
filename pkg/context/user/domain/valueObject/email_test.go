@@ -3,7 +3,7 @@ package valueObject_test
 import (
 	"testing"
 
-	valueObjectMother "github.com/bastean/codexgo/pkg/context/user/domain/valueObject/mother"
+	valueObjectMother "github.com/bastean/bingo/pkg/context/user/domain/valueObject/mother"
 	"github.com/stretchr/testify/suite"
 )
 

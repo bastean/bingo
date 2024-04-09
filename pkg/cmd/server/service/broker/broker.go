@@ -3,19 +3,19 @@ package broker
 import (
 	"os"
 
-	"github.com/bastean/codexgo/pkg/cmd/server/service/logger"
-	"github.com/bastean/codexgo/pkg/cmd/server/service/notify"
-	"github.com/bastean/codexgo/pkg/context/notify/application/sendMail"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/exchange"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/queue"
-	"github.com/bastean/codexgo/pkg/context/shared/infrastructure/communication"
+	"github.com/bastean/bingo/pkg/cmd/server/service/logger"
+	"github.com/bastean/bingo/pkg/cmd/server/service/notify"
+	"github.com/bastean/bingo/pkg/context/notify/application/sendMail"
+	"github.com/bastean/bingo/pkg/context/shared/domain/exchange"
+	"github.com/bastean/bingo/pkg/context/shared/domain/queue"
+	"github.com/bastean/bingo/pkg/context/shared/infrastructure/communication"
 )
 
 var uri = os.Getenv("BROKER_URI")
 
 var Broker = communication.NewRabbitMQ(uri)
 
-var Exchange = exchange.NewExchange("codexgo")
+var Exchange = exchange.NewExchange("bingo")
 
 var NotifySendAccountConfirmationQueueName = queue.NewQueueName(&queue.QueueName{Module: "notify", Action: "send account confirmation", Event: "registered.succeeded"})
 

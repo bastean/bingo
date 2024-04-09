@@ -4,13 +4,13 @@ import (
 	"context"
 	"os"
 
-	"github.com/bastean/codexgo/pkg/cmd/server/service/logger"
-	"github.com/bastean/codexgo/pkg/context/shared/infrastructure/persistence/database"
+	"github.com/bastean/bingo/pkg/cmd/server/service/logger"
+	"github.com/bastean/bingo/pkg/context/shared/infrastructure/persistence/database"
 )
 
 var uri = os.Getenv("DATABASE_URI")
 
-var databaseName = "codexgo"
+var databaseName = "bingo"
 
 var Database = database.NewMongoDatabase(uri, databaseName)
 

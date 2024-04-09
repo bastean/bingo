@@ -3,11 +3,11 @@ package handler
 import (
 	"encoding/json"
 
-	"github.com/bastean/codexgo/pkg/cmd/server/component/page"
-	"github.com/bastean/codexgo/pkg/cmd/server/event"
-	"github.com/bastean/codexgo/pkg/cmd/server/service/auth"
-	"github.com/bastean/codexgo/pkg/cmd/server/service/user"
-	"github.com/bastean/codexgo/pkg/context/user/application/login"
+	"github.com/bastean/bingo/pkg/cmd/server/component/page"
+	"github.com/bastean/bingo/pkg/cmd/server/event"
+	"github.com/bastean/bingo/pkg/cmd/server/service/auth"
+	"github.com/bastean/bingo/pkg/cmd/server/service/user"
+	"github.com/bastean/bingo/pkg/context/user/application/login"
 	"github.com/gin-gonic/gin"
 )
 

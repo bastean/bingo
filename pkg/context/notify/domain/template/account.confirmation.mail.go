@@ -1,7 +1,7 @@
 package template
 
 import (
-	"github.com/bastean/codexgo/pkg/context/notify/domain/model"
+	"github.com/bastean/bingo/pkg/context/notify/domain/model"
 )
 
 type AccountConfirmationMail struct {

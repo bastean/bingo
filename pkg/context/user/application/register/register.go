@@ -1,8 +1,8 @@
 package register
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/domain/aggregate"
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
+	"github.com/bastean/bingo/pkg/context/user/domain/aggregate"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
 )
 
 type Register struct {

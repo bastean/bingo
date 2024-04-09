@@ -4,9 +4,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bastean/codexgo/pkg/context/notify/domain/model"
-	"github.com/bastean/codexgo/pkg/context/notify/domain/template"
-	"github.com/bastean/codexgo/pkg/context/notify/infrastructure/communication"
+	"github.com/bastean/bingo/pkg/context/notify/domain/model"
+	"github.com/bastean/bingo/pkg/context/notify/domain/template"
+	"github.com/bastean/bingo/pkg/context/notify/infrastructure/communication"
 	"github.com/stretchr/testify/suite"
 )
 

@@ -1,5 +1,5 @@
 {
-  "name": "codexgo",
+  "name": "bingo",
   "image": "mcr.microsoft.com/devcontainers/base:bookworm",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},

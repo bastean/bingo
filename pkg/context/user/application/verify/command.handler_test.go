@@ -3,12 +3,12 @@ package verify_test
 import (
 	"testing"
 
-	"github.com/bastean/codexgo/pkg/context/user/application/verify"
-	commandMother "github.com/bastean/codexgo/pkg/context/user/application/verify/mother"
-	aggregateMother "github.com/bastean/codexgo/pkg/context/user/domain/aggregate/mother"
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
-	persistenceMock "github.com/bastean/codexgo/pkg/context/user/infrastructure/persistence/mock"
+	"github.com/bastean/bingo/pkg/context/user/application/verify"
+	commandMother "github.com/bastean/bingo/pkg/context/user/application/verify/mother"
+	aggregateMother "github.com/bastean/bingo/pkg/context/user/domain/aggregate/mother"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
+	persistenceMock "github.com/bastean/bingo/pkg/context/user/infrastructure/persistence/mock"
 	"github.com/stretchr/testify/suite"
 )
 

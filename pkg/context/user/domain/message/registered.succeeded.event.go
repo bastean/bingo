@@ -3,8 +3,8 @@ package message
 import (
 	"encoding/json"
 
-	"github.com/bastean/codexgo/pkg/context/shared/domain/errors"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/message"
+	"github.com/bastean/bingo/pkg/context/shared/domain/errors"
+	"github.com/bastean/bingo/pkg/context/shared/domain/message"
 )
 
 var RegisteredSucceededEventRoutingKey = message.NewMessageRoutingKey(&message.MessageRoutingKey{Module: "user", Version: "1", Type: message.Event, Aggregate: "user", Event: "registered", Status: message.Succeeded})

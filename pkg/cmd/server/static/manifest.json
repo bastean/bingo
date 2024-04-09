@@ -1,15 +1,15 @@
 {
-  "name": "codexgo",
-  "short_name": "codexgo",
-  "version": "3.0.1",
-  "description": "codexgo",
+  "name": "bingo",
+  "short_name": "bingo",
+  "version": "0.0.0",
+  "description": "bingo",
   "author": "Bastean <bastean@pm.me>",
-  "homepage_url": "https://github.com/bastean/codexgo#readme",
+  "homepage_url": "https://github.com/bastean/bingo#readme",
   "start_url": ".",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#202224",
-  "theme_color": "#202224",
+  "background_color": "#1A1E1D",
+  "theme_color": "#1A1E1D",
   "icons": [
     {
       "src": "assets/pwa-any.png",

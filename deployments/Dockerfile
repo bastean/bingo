@@ -28,4 +28,4 @@ FROM golang:bookworm AS prod
 
 WORKDIR /app
 
-COPY --from=build app/build/codexgo .
+COPY --from=build app/build/bingo .

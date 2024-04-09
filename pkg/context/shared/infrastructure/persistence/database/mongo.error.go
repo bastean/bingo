@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/bastean/codexgo/pkg/context/shared/domain/errors"
+	"github.com/bastean/bingo/pkg/context/shared/domain/errors"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )

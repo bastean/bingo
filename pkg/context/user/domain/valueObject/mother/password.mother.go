@@ -1,8 +1,8 @@
 package valueObjectMother
 
 import (
-	"github.com/bastean/codexgo/pkg/context/shared/domain/service/mother"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
+	"github.com/bastean/bingo/pkg/context/shared/domain/service/mother"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
 )
 
 func RandomPassword() *valueObject.Password {

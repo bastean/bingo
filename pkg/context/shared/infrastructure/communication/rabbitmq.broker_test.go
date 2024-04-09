@@ -4,12 +4,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bastean/codexgo/pkg/context/shared/domain/exchange"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/message"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/model"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/queue"
-	"github.com/bastean/codexgo/pkg/context/shared/infrastructure/communication"
-	communicationMock "github.com/bastean/codexgo/pkg/context/shared/infrastructure/communication/mock"
+	"github.com/bastean/bingo/pkg/context/shared/domain/exchange"
+	"github.com/bastean/bingo/pkg/context/shared/domain/message"
+	"github.com/bastean/bingo/pkg/context/shared/domain/model"
+	"github.com/bastean/bingo/pkg/context/shared/domain/queue"
+	"github.com/bastean/bingo/pkg/context/shared/infrastructure/communication"
+	communicationMock "github.com/bastean/bingo/pkg/context/shared/infrastructure/communication/mock"
 	"github.com/stretchr/testify/suite"
 )
 

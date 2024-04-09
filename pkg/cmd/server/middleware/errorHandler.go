@@ -3,8 +3,8 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/bastean/codexgo/pkg/cmd/server/component/partial/alert"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/errors"
+	"github.com/bastean/bingo/pkg/cmd/server/component/partial/alert"
+	"github.com/bastean/bingo/pkg/context/shared/domain/errors"
 	"github.com/gin-gonic/gin"
 )
 

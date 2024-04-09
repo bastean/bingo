@@ -1,17 +1,17 @@
 {
   "private": true,
-  "name": "codexgo",
-  "version": "3.0.1",
-  "description": "codexgo",
+  "name": "bingo",
+  "version": "0.0.0",
+  "description": "bingo",
   "author": "Bastean <bastean@pm.me>",
   "license": "MIT",
-  "homepage": "https://github.com/bastean/codexgo#readme",
+  "homepage": "https://github.com/bastean/bingo#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bastean/codexgo.git"
+    "url": "https://github.com/bastean/bingo.git"
   },
   "bugs": {
-    "url": "https://github.com/bastean/codexgo/issues"
+    "url": "https://github.com/bastean/bingo/issues"
   },
   "engines": {
     "node": ">=20",
@@ -54,7 +54,7 @@
     "git": {
       "requireBranch": "main",
       "commitMessage": "chore(release): v${version}",
-      "tagAnnotation": "codexgo ${version}",
+      "tagAnnotation": "bingo ${version}",
       "tagName": "v${version}"
     },
     "github": {

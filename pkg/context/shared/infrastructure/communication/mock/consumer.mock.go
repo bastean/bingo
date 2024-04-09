@@ -1,8 +1,8 @@
 package communicationMock
 
 import (
-	"github.com/bastean/codexgo/pkg/context/shared/domain/message"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/queue"
+	"github.com/bastean/bingo/pkg/context/shared/domain/message"
+	"github.com/bastean/bingo/pkg/context/shared/domain/queue"
 	"github.com/stretchr/testify/mock"
 )
 

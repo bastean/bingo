@@ -3,10 +3,10 @@ package persistence
 import (
 	"context"
 
-	"github.com/bastean/codexgo/pkg/context/shared/infrastructure/persistence/database"
-	"github.com/bastean/codexgo/pkg/context/user/domain/aggregate"
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
+	"github.com/bastean/bingo/pkg/context/shared/infrastructure/persistence/database"
+	"github.com/bastean/bingo/pkg/context/user/domain/aggregate"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

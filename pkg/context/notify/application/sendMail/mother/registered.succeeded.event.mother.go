@@ -3,9 +3,9 @@ package eventMother
 import (
 	"encoding/json"
 
-	"github.com/bastean/codexgo/pkg/context/notify/application/sendMail"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/message"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/service/mother"
+	"github.com/bastean/bingo/pkg/context/notify/application/sendMail"
+	"github.com/bastean/bingo/pkg/context/shared/domain/message"
+	"github.com/bastean/bingo/pkg/context/shared/domain/service/mother"
 )
 
 var RegisteredSucceededEventRoutingKey = message.NewMessageRoutingKey(&message.MessageRoutingKey{Module: "user", Version: "1", Type: message.Event, Aggregate: "user", Event: "registered", Status: message.Succeeded})

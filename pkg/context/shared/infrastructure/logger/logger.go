@@ -3,7 +3,7 @@ package logger
 import (
 	"log"
 
-	"github.com/bastean/codexgo/pkg/context/shared/domain/model"
+	"github.com/bastean/bingo/pkg/context/shared/domain/model"
 )
 
 type Logger struct{}

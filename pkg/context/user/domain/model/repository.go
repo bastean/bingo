@@ -1,8 +1,8 @@
 package model
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/domain/aggregate"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
+	"github.com/bastean/bingo/pkg/context/user/domain/aggregate"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
 )
 
 type RepositorySearchFilter struct {

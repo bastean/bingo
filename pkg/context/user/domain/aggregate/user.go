@@ -1,9 +1,9 @@
 package aggregate
 
 import (
-	"github.com/bastean/codexgo/pkg/context/shared/domain/aggregate"
-	"github.com/bastean/codexgo/pkg/context/user/domain/message"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
+	"github.com/bastean/bingo/pkg/context/shared/domain/aggregate"
+	"github.com/bastean/bingo/pkg/context/user/domain/message"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
 )
 
 type User struct {

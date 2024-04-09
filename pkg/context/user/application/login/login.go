@@ -1,10 +1,10 @@
 package login
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/domain/aggregate"
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
-	"github.com/bastean/codexgo/pkg/context/user/domain/service"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
+	"github.com/bastean/bingo/pkg/context/user/domain/aggregate"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
+	"github.com/bastean/bingo/pkg/context/user/domain/service"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
 )
 
 type Login struct {

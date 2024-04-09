@@ -1,23 +1,26 @@
 <h1 align="center">
 
-<!-- [![logo readme](https://raw.githubusercontent.com/bastean/codexgo/main/assets/readme/logo-readme.png)](https://github.com/bastean) -->
+<!-- [![logo readme](https://raw.githubusercontent.com/bastean/bingo/main/assets/readme/logo-readme.png)](https://github.com/bastean) -->
 
-[![logo readme](assets/readme/logo-readme.png)](https://github.com/bastean/codexgo)
+[![logo readme](assets/readme/logo-readme.png)](https://github.com/bastean/bingo)
 
 </h1>
 
 <div align="center">
 
-> Example CRUD project applying Hexagonal Architecture, Domain-Driven Design (DDD), Event-Driven Architecture (EDA), Command Query Responsibility Segregation (CQRS), Behavior-Driven Development (BDD), Continuous Integration (CI), and more... in Go
+> Example service for generating cross-platform custom executable binary
 
 </div>
+
+> [!WARNING]
+> This project is in the early stages of development
 
 <br />
 
 <div align="center">
 
 [![license MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![go report card](https://goreportcard.com/badge/github.com/bastean/codexgo)](https://goreportcard.com/report/github.com/bastean/codexgo)
+[![go report card](https://goreportcard.com/badge/github.com/bastean/bingo)](https://goreportcard.com/report/github.com/bastean/bingo)
 [![commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://github.com/commitizen/cz-cli)
 [![release it](https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9A%80-release--it-orange.svg)](https://github.com/release-it/release-it)
 
@@ -25,16 +28,16 @@
 
 <div align="center">
 
-[![upgrade workflow](https://github.com/bastean/codexgo/actions/workflows/upgrade.yml/badge.svg)](https://github.com/bastean/codexgo/actions/workflows/upgrade.yml)
-[![ci workflow](https://github.com/bastean/codexgo/actions/workflows/ci.yml/badge.svg)](https://github.com/bastean/codexgo/actions/workflows/ci.yml)
-[![release workflow](https://github.com/bastean/codexgo/actions/workflows/release.yml/badge.svg)](https://github.com/bastean/codexgo/actions/workflows/release.yml)
+[![upgrade workflow](https://github.com/bastean/bingo/actions/workflows/upgrade.yml/badge.svg)](https://github.com/bastean/bingo/actions/workflows/upgrade.yml)
+[![ci workflow](https://github.com/bastean/bingo/actions/workflows/ci.yml/badge.svg)](https://github.com/bastean/bingo/actions/workflows/ci.yml)
+[![release workflow](https://github.com/bastean/bingo/actions/workflows/release.yml/badge.svg)](https://github.com/bastean/bingo/actions/workflows/release.yml)
 
 </div>
 
 <div align="center">
 
-[![go reference](https://pkg.go.dev/badge/github.com/bastean/codexgo.svg)](https://pkg.go.dev/github.com/bastean/codexgo)
-[![github release](https://img.shields.io/github/v/release/bastean/codexgo.svg)](https://github.com/bastean/codexgo/releases)
+[![go reference](https://pkg.go.dev/badge/github.com/bastean/bingo.svg)](https://pkg.go.dev/github.com/bastean/bingo)
+[![github release](https://img.shields.io/github/v/release/bastean/bingo.svg)](https://github.com/bastean/bingo/releases)
 
 </div>
 
@@ -108,13 +111,13 @@
 #### HTTPS
 
 ```bash
-git clone https://github.com/bastean/codexgo.git && cd codexgo
+git clone https://github.com/bastean/bingo.git && cd bingo
 ```
 
 #### SSH
 
 ```bash
-git clone git@github.com:bastean/codexgo.git && cd codexgo
+git clone git@github.com:bastean/bingo.git && cd bingo
 ```
 
 ### Initialize

@@ -5,4 +5,4 @@ type event struct {
 	DeleteAuthorization string
 }
 
-var Client = event{PutAuthorization: "codexgo:put-authorization", DeleteAuthorization: "codexgo:delete-authorization"}
+var Client = event{PutAuthorization: "bingo:put-authorization", DeleteAuthorization: "bingo:delete-authorization"}

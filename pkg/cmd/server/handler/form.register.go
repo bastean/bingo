@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"github.com/bastean/codexgo/pkg/cmd/server/component/partial/alert"
-	"github.com/bastean/codexgo/pkg/cmd/server/service/user"
-	"github.com/bastean/codexgo/pkg/context/user/application/register"
+	"github.com/bastean/bingo/pkg/cmd/server/component/partial/alert"
+	"github.com/bastean/bingo/pkg/cmd/server/service/user"
+	"github.com/bastean/bingo/pkg/context/user/application/register"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 )

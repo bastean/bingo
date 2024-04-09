@@ -3,7 +3,7 @@ package database
 import (
 	"context"
 
-	"github.com/bastean/codexgo/pkg/context/shared/domain/service"
+	"github.com/bastean/bingo/pkg/context/shared/domain/service"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

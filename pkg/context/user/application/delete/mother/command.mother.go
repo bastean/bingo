@@ -1,8 +1,8 @@
 package commandMother
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/application/delete"
-	valueObjectMother "github.com/bastean/codexgo/pkg/context/user/domain/valueObject/mother"
+	"github.com/bastean/bingo/pkg/context/user/application/delete"
+	valueObjectMother "github.com/bastean/bingo/pkg/context/user/domain/valueObject/mother"
 )
 
 func Random() *delete.Command {

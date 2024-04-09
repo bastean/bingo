@@ -25,7 +25,7 @@ services:
     ports:
       - ${MONGO_INITDB_PORT}:${MONGO_INITDB_PORT}
     volumes:
-      - codexgo-database:/data/db
+      - bingo-database:/data/db
     restart: ${MONGO_RESTART}
     healthcheck:
       test: echo 'db.runCommand({serverStatus:1}).ok' | mongo admin -u ${MONGO_INITDB_ROOT_USERNAME} -p ${MONGO_INITDB_ROOT_PASSWORD} --quiet | grep 1
@@ -57,7 +57,7 @@ services:
       - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - ${SERVER_VOLUMES_APP}
-      - codexgo-modules:/go/pkg/mod
+      - bingo-modules:/go/pkg/mod
     restart: ${SERVER_RESTART}
     depends_on:
       broker:
@@ -66,9 +66,9 @@ services:
         condition: service_healthy
 
 volumes:
-  codexgo-database:
+  bingo-database:
     name: ${DATABASE_VOLUME}
-  codexgo-server:
-    name: codexgo-server
-  codexgo-modules:
-    name: codexgo-modules
+  bingo-server:
+    name: bingo-server
+  bingo-modules:
+    name: bingo-modules

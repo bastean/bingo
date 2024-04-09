@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/smtp"
 
-	"github.com/bastean/codexgo/pkg/context/notify/domain/model"
-	"github.com/bastean/codexgo/pkg/context/notify/domain/template"
+	"github.com/bastean/bingo/pkg/context/notify/domain/model"
+	"github.com/bastean/bingo/pkg/context/notify/domain/template"
 )
 
 type Smtp struct {

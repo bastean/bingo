@@ -1,8 +1,8 @@
 package aggregateMother
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/domain/aggregate"
-	valueObjectMother "github.com/bastean/codexgo/pkg/context/user/domain/valueObject/mother"
+	"github.com/bastean/bingo/pkg/context/user/domain/aggregate"
+	valueObjectMother "github.com/bastean/bingo/pkg/context/user/domain/valueObject/mother"
 )
 
 func Invalid() *aggregate.User {

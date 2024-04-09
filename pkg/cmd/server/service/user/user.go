@@ -1,15 +1,15 @@
 package user
 
 import (
-	"github.com/bastean/codexgo/pkg/cmd/server/service/broker"
-	"github.com/bastean/codexgo/pkg/cmd/server/service/database"
-	"github.com/bastean/codexgo/pkg/context/user/application/delete"
-	"github.com/bastean/codexgo/pkg/context/user/application/login"
-	"github.com/bastean/codexgo/pkg/context/user/application/register"
-	"github.com/bastean/codexgo/pkg/context/user/application/update"
-	"github.com/bastean/codexgo/pkg/context/user/application/verify"
-	"github.com/bastean/codexgo/pkg/context/user/infrastructure/cryptographic"
-	"github.com/bastean/codexgo/pkg/context/user/infrastructure/persistence"
+	"github.com/bastean/bingo/pkg/cmd/server/service/broker"
+	"github.com/bastean/bingo/pkg/cmd/server/service/database"
+	"github.com/bastean/bingo/pkg/context/user/application/delete"
+	"github.com/bastean/bingo/pkg/context/user/application/login"
+	"github.com/bastean/bingo/pkg/context/user/application/register"
+	"github.com/bastean/bingo/pkg/context/user/application/update"
+	"github.com/bastean/bingo/pkg/context/user/application/verify"
+	"github.com/bastean/bingo/pkg/context/user/infrastructure/cryptographic"
+	"github.com/bastean/bingo/pkg/context/user/infrastructure/persistence"
 )
 
 var collectionName = "users"

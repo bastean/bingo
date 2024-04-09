@@ -1,10 +1,10 @@
 package layout
 
 import (
-	"github.com/bastean/codexgo/pkg/cmd/server/event"
-	"github.com/bastean/codexgo/pkg/cmd/server/component/partial/alert"
-	"github.com/bastean/codexgo/pkg/cmd/server/component/partial/theme"
-	"github.com/bastean/codexgo/pkg/cmd/server/component/script"
+	"github.com/bastean/bingo/pkg/cmd/server/event"
+	"github.com/bastean/bingo/pkg/cmd/server/component/partial/alert"
+	"github.com/bastean/bingo/pkg/cmd/server/component/partial/theme"
+	"github.com/bastean/bingo/pkg/cmd/server/component/script"
 )
 
 var PutAuthorization = event.Client.PutAuthorization
@@ -16,9 +16,9 @@ templ Base(content templ.Component) {
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<meta name="description" content="codexgo"/>
-			<meta name="keywords" content="codexgo"/>
-			<meta name="theme-color" content="#202224"/>
+			<meta name="description" content="bingo"/>
+			<meta name="keywords" content="bingo"/>
+			<meta name="theme-color" content="#1A1E1D"/>
 			<meta name="apple-mobile-web-app-capable" content="yes"/>
 			<meta
 				name="apple-mobile-web-app-status-bar-style"
@@ -57,7 +57,7 @@ templ Base(content templ.Component) {
 				href="/public/static/assets/apple-touch-icon.png"
 			/>
 			<link rel="icon" href="/public/static/assets/favicon.png"/>
-			<title>codexgo</title>
+			<title>bingo</title>
 		</head>
 		<body hx-ext="response-targets, alpine-morph, multi-swap, remove-me">
 			@alert.Popup()

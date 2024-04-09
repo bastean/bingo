@@ -3,9 +3,9 @@ package cryptographic_test
 import (
 	"testing"
 
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
-	valueObjectMother "github.com/bastean/codexgo/pkg/context/user/domain/valueObject/mother"
-	"github.com/bastean/codexgo/pkg/context/user/infrastructure/cryptographic"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
+	valueObjectMother "github.com/bastean/bingo/pkg/context/user/domain/valueObject/mother"
+	"github.com/bastean/bingo/pkg/context/user/infrastructure/cryptographic"
 	"github.com/stretchr/testify/suite"
 )
 

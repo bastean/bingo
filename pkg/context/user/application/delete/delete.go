@@ -1,8 +1,8 @@
 package delete
 
 import (
-	"github.com/bastean/codexgo/pkg/context/user/domain/model"
-	"github.com/bastean/codexgo/pkg/context/user/domain/valueObject"
+	"github.com/bastean/bingo/pkg/context/user/domain/model"
+	"github.com/bastean/bingo/pkg/context/user/domain/valueObject"
 )
 
 type Delete struct {

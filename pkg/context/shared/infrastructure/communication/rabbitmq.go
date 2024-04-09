@@ -9,11 +9,11 @@ import (
 	"github.com/google/uuid"
 	amqp "github.com/rabbitmq/amqp091-go"
 
-	"github.com/bastean/codexgo/pkg/context/shared/domain/exchange"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/message"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/model"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/queue"
-	"github.com/bastean/codexgo/pkg/context/shared/domain/service"
+	"github.com/bastean/bingo/pkg/context/shared/domain/exchange"
+	"github.com/bastean/bingo/pkg/context/shared/domain/message"
+	"github.com/bastean/bingo/pkg/context/shared/domain/model"
+	"github.com/bastean/bingo/pkg/context/shared/domain/queue"
+	"github.com/bastean/bingo/pkg/context/shared/domain/service"
 )
 
 type RabbitMQ struct {
