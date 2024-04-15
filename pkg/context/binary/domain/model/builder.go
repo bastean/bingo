@@ -5,6 +5,5 @@ import (
 )
 
 type Builder interface {
-	AddRecord(record *Record)
-	Build() *valueObject.FilePath
+	Build(record *Record) *valueObject.FilePath
 }
