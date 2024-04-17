@@ -6,7 +6,7 @@ type Description struct {
 
 func NewDescription(description string) *Description {
 	if description == "" {
-		description = "Custom executable binary"
+		description = "Example service for generating cross-platform custom executable binary"
 	}
 
 	return &Description{

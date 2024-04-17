@@ -6,7 +6,7 @@ type Name struct {
 
 func NewName(name string) *Name {
 	if name == "" {
-		name = "binary"
+		name = "bingo"
 	}
 
 	return &Name{

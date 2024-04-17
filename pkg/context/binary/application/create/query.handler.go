@@ -2,65 +2,25 @@ package create
 
 import (
 	"github.com/bastean/bingo/pkg/context/binary/domain/aggregate"
-	"github.com/bastean/bingo/pkg/context/binary/domain/model"
+	"github.com/bastean/bingo/pkg/context/binary/domain/service"
 )
 
 type QueryHandler struct {
 	*Create
 }
 
-func (handler *QueryHandler) customBinaryRecord(binaryModel *Record, binary *model.Record) {
-	if !binaryModel.Command.ShouldRecorded {
-		binary.Command = nil
-		// TODO?(cleanest struct): return
-	}
-
-	for i, argument := range binary.Arguments {
-		for _, argumentModel := range binaryModel.Arguments {
-			if argument.Name == argumentModel.Name && !argumentModel.ShouldRecorded {
-				binary.Arguments[i] = nil
-			}
-		}
-	}
-
-	for i, option := range binary.Options {
-		for _, optionModel := range binaryModel.Options {
-			if option.Name == optionModel.Name && !optionModel.ShouldRecorded {
-				binary.Options[i] = nil
-			}
-		}
-	}
-
-	for i, flag := range binary.Flags {
-		for _, flagModel := range binaryModel.Flags {
-			if flag.Name == flagModel.Name && !flagModel.ShouldRecorded {
-				binary.Flags[i] = nil
-			}
-		}
-	}
-
-	for _, subcommandModel := range binaryModel.Subcommands {
-		for _, subcommand := range binary.Subcommands {
-			switch {
-			case subcommand.Command == nil:
-				continue
-			case subcommand.Command.Name == subcommandModel.Command.Name:
-				handler.customBinaryRecord(subcommandModel, subcommand)
-			}
-		}
-	}
-}
-
 func (handler *QueryHandler) Handle(query *Query) *Response {
-	binary := aggregate.NewBinary(query.Name, query.Description)
+	query.Command.Switch = true
 
-	binaryModel := query.Record
+	root := aggregate.NewRoot(query.Command.Name, query.Command.Description)
 
-	binaryModel.Command.ShouldRecorded = true
+	model := root.Command
 
-	handler.customBinaryRecord(binaryModel, binary.Record)
+	switches := query.Command
 
-	filePath := handler.Create.Run(binary)
+	service.Switcher(model, switches)
+
+	filePath := handler.Create.Run(root)
 
 	return NewResponse(filePath.Value)
 }

@@ -51,6 +51,7 @@ install-deps:
 
 #* Generators
 generate-required:
+	@go generate ./...
 	@templ generate
 
 #* Initializations

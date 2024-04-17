@@ -2,21 +2,21 @@ package create
 
 import (
 	"github.com/bastean/bingo/pkg/context/binary/domain/aggregate"
-	"github.com/bastean/bingo/pkg/context/binary/domain/model"
+	"github.com/bastean/bingo/pkg/context/binary/domain/builder"
 	"github.com/bastean/bingo/pkg/context/binary/domain/valueObject"
 )
 
 type Create struct {
-	model.Builder
+	builder.Builder
 }
 
-func (create *Create) Run(binary *aggregate.Binary) *valueObject.FilePath {
-	filePath := create.Builder.Build(binary.Record)
+func (create *Create) Run(root *aggregate.Root) *valueObject.FilePath {
+	filePath := create.Builder.Build(root)
 
 	return filePath
 }
 
-func NewCreate(builder model.Builder) *Create {
+func NewCreate(builder builder.Builder) *Create {
 	return &Create{
 		Builder: builder,
 	}
