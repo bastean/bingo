@@ -11,7 +11,7 @@ type Root struct {
 }
 
 func create(name, description string) *Root {
-	nameVO := valueObject.NewName(name)
+	nameVO := valueObject.NewFilename(name)
 	descriptionVO := valueObject.NewDescription(description)
 
 	return &Root{

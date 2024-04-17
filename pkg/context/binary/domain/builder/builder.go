@@ -6,5 +6,5 @@ import (
 )
 
 type Builder interface {
-	Build(root *aggregate.Root) *valueObject.FilePath
+	Build(root *aggregate.Root) *valueObject.Filepath
 }

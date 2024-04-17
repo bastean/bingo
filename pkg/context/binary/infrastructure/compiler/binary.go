@@ -22,25 +22,25 @@ import (
 const dirTempName = "temp"
 const dirTempBuildName = "build-*"
 
-const fileCompressAppName = "app.tar.gz"
+const fileCompressedAppName = "app.tar.gz"
 const fileEntrypointName = "main.go"
 const fileConfigurationName = "config.json"
 
 //go:embed embed/app.tar.gz
-var compressedApp []byte
+var compressedAppEmbed []byte
 
 type Binary struct{}
 
-func (binary *Binary) Build(root *aggregate.Root) *valueObject.FilePath {
+func (binary *Binary) Build(root *aggregate.Root) *valueObject.Filepath {
 	os.Mkdir(dirTempName, os.ModePerm)
 
 	dirTemp, err := os.MkdirTemp(dirTempName, dirTempBuildName)
 
 	service.FailOnError(err, "failed to create temp directory")
 
-	compressedAppFile := filepath.Join(dirTemp, fileCompressAppName)
+	compressedAppFile := filepath.Join(dirTemp, fileCompressedAppName)
 
-	err = os.WriteFile(compressedAppFile, compressedApp, os.ModePerm)
+	err = os.WriteFile(compressedAppFile, compressedAppEmbed, os.ModePerm)
 
 	service.FailOnError(err, "failed to write embed compressed app")
 
@@ -64,7 +64,7 @@ func (binary *Binary) Build(root *aggregate.Root) *valueObject.FilePath {
 
 	filePath := filepath.Join(dirTemp, output)
 
-	return valueObject.NewFilePath(filePath)
+	return valueObject.NewFilepath(filePath)
 }
 
 func NewBinaryBuilder() builder.Builder {

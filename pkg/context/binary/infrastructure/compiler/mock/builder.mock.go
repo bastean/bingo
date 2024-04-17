@@ -10,9 +10,12 @@ type BuilderMock struct {
 	mock.Mock
 }
 
-func (mock *BuilderMock) Build(root *aggregate.Root) *valueObject.FilePath {
-	args := mock.Called(root)
-	return args.Get(0).(*valueObject.FilePath)
+func (mock *BuilderMock) Build(root *aggregate.Root) *valueObject.Filepath {
+	// TODO?: args := mock.Called(root)
+
+	args := mock.Called()
+
+	return args.Get(0).(*valueObject.Filepath)
 }
 
 func NewBuilderMock() *BuilderMock {

@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/bastean/bingo/pkg/context/binary/application/create"
+	"github.com/bastean/bingo/pkg/context/binary/domain/valueObject"
 	compilerMock "github.com/bastean/bingo/pkg/context/binary/infrastructure/compiler/mock"
 	"github.com/stretchr/testify/suite"
 )
@@ -26,13 +27,25 @@ func (suite *BinaryCreateTestSuite) TestCreate() {
 
 	description := "success"
 
+	filepath := valueObject.NewFilepath("/build/success")
+
 	query := create.NewQuery(name, description)
 
-	// TODO!: suite.builder.On("build")
+	// TODO?: root := aggregate.NewRoot(name, description)
 
-	expected := create.NewResponse("build/success")
+	// TODO?: service.Switcher(root.Command, query.Command)
 
-	actual := suite.sut.Handle(query)
+	// TODO?: suite.builder.On("Build", root).Return(filepath)
+
+	suite.builder.On("Build").Return(filepath)
+
+	expected := filepath.Value
+
+	response := suite.sut.Handle(query)
+
+	actual := response.FilePath
+
+	suite.builder.AssertExpectations(suite.T())
 
 	suite.EqualValues(expected, actual)
 }

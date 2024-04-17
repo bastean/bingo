@@ -10,7 +10,7 @@ type Create struct {
 	builder.Builder
 }
 
-func (create *Create) Run(root *aggregate.Root) *valueObject.FilePath {
+func (create *Create) Run(root *aggregate.Root) *valueObject.Filepath {
 	filePath := create.Builder.Build(root)
 
 	return filePath
