@@ -167,9 +167,6 @@ compose-test-down:
 	@${compose-env} .env.test down
 	@docker volume rm bingo-database-test -f
 
-compose-test-integration: compose-test-down
-	@${compose-env} .env.test --env-file .env.example.test.integration up --exit-code-from server
-
 compose-test-acceptance: compose-test-down
 	@${compose-env} .env.test --env-file .env.example.test.acceptance up --exit-code-from server
 
