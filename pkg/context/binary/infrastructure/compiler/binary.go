@@ -13,7 +13,7 @@ import (
 )
 
 //go:generate rsync -a --delete ../../domain/model app
-//go:generate touch app/config.json
+//go:generate touch app/config/config.json
 //go:generate bash -c "cd app && go mod tidy && go mod vendor"
 //go:generate rm -rf embed
 //go:generate mkdir embed
@@ -27,7 +27,7 @@ const fileEntrypointName = "main.go"
 const fileConfigurationName = "config.json"
 
 //go:embed embed/app.tar.gz
-var compressedAppEmbed []byte
+var compressedAppEmbedded []byte
 
 type Binary struct{}
 
@@ -40,7 +40,7 @@ func (binary *Binary) Build(root *aggregate.Root) *valueObject.Filepath {
 
 	compressedAppFile := filepath.Join(dirTemp, fileCompressedAppName)
 
-	err = os.WriteFile(compressedAppFile, compressedAppEmbed, os.ModePerm)
+	err = os.WriteFile(compressedAppFile, compressedAppEmbedded, os.ModePerm)
 
 	service.FailOnError(err, "failed to write embed compressed app")
 
@@ -52,13 +52,15 @@ func (binary *Binary) Build(root *aggregate.Root) *valueObject.Filepath {
 
 	service.FailOnError(err, "failed to encoding json")
 
-	configFile := filepath.Join(dirTemp, fileConfigurationName)
+	configFile := filepath.Join(dirTemp, "config", fileConfigurationName)
 
 	err = os.WriteFile(configFile, rootJson, os.ModePerm)
 
 	service.FailOnError(err, "failed to write configuration file")
 
 	output := filepath.Join("build", root.Command.Name)
+
+	// TODO!(build): GOOS & GOARCH
 
 	service.RunCommand("go", "build", "-C", dirTemp, "-mod", "vendor", "-o", output, fileEntrypointName)
 

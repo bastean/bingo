@@ -16,8 +16,8 @@ func NewLanguage() *model.Command {
 				Description: "Generate random programming language"},
 			},
 			{Data: &model.Data{
-				Name:        "programmingLanguageBest",
-				Description: "Generate random programming languageBest"},
+				Name:        "bestProgrammingLanguage",
+				Description: "Generate best programming language"},
 			},
 		},
 	}

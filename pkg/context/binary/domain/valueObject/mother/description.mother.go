@@ -12,7 +12,7 @@ func RandomDescription() *valueObject.Description {
 }
 
 func WithInvalidDescriptionLength() *valueObject.Description {
-	return valueObject.NewDescription(strings.Repeat("x", 102))
+	return valueObject.NewDescription(strings.Repeat("x", 101))
 }
 
 func WithInvalidDescriptionAlphanumeric() *valueObject.Description {

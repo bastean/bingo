@@ -55,4 +55,4 @@ tmp*
 vendor
 embed
 **/infrastructure/**/app/model
-**/infrastructure/**/app/config.json
+**/infrastructure/**/app/config/config.json
