@@ -23,7 +23,7 @@ compose-env = ${compose} --env-file
 
 #* Upgrades
 upgrade-managers:
-	#? @sudo apt update && sudo apt upgrade -y
+	#? @apt update && apt upgrade -y
 	@npm upgrade -g
 
 upgrade-go:
@@ -47,7 +47,7 @@ install-deps:
 	@${npm-ci}
 	@go install honnef.co/go/tools/cmd/staticcheck@latest
 	@go install github.com/a-h/templ/cmd/templ@latest
-	@curl -sSfL https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sudo sh -s -- -b /usr/local/bin v3.63.11
+	@curl -sSfL https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sh -s -- -b /usr/local/bin v3.63.11
 
 #* Generators
 generate-required:
