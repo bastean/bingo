@@ -10,7 +10,8 @@ tmp_dir = "tmp"
   exclude_dir = []
   exclude_file = []
   exclude_regex = [
-    "_test.go"
+    "^.*_test.go$",
+    "^.*_templ.go$"
   ]
   exclude_unchanged = false
   follow_symlink = false
