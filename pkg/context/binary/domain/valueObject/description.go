@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/bastean/bingo/pkg/context/binary/domain/errors"
+	"github.com/bastean/bingo/pkg/context/shared/domain/errors"
 )
 
 const DescriptionMinCharactersLength = "1"

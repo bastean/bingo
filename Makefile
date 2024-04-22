@@ -158,14 +158,12 @@ docker-usage:
 
 compose-dev-down:
 	@${compose-env} .env.dev down
-	@docker volume rm bingo-database-dev -f
 
 compose-dev: compose-dev-down
 	@${compose-env} .env.dev up
 
 compose-test-down:
 	@${compose-env} .env.test down
-	@docker volume rm bingo-database-test -f
 
 compose-test-acceptance: compose-test-down
 	@${compose-env} .env.test --env-file .env.example.test.acceptance up --exit-code-from server

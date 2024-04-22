@@ -12,9 +12,13 @@ import (
 	"github.com/bastean/bingo/pkg/context/binary/domain/valueObject"
 )
 
-//go:generate rsync -a --delete ../../domain/model app
+//go:generate rm -rf app/model
+//go:generate cp -rp ../../domain/model app
+
 //go:generate touch app/config/config.json
+
 //go:generate bash -c "cd app && go mod tidy && go mod vendor"
+
 //go:generate rm -rf embed
 //go:generate mkdir embed
 //go:generate bash -c "cd app && tar -czf ../embed/app.tar.gz *"

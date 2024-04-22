@@ -3,8 +3,8 @@ package valueObject_test
 import (
 	"testing"
 
-	"github.com/bastean/bingo/pkg/context/binary/domain/errors"
 	valueObjectMother "github.com/bastean/bingo/pkg/context/binary/domain/valueObject/mother"
+	"github.com/bastean/bingo/pkg/context/shared/domain/errors"
 	"github.com/stretchr/testify/suite"
 )
 

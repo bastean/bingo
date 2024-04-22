@@ -1,0 +1,73 @@
+package layout
+
+import (
+	"github.com/bastean/bingo/pkg/cmd/server/component/partial/alert"
+	"github.com/bastean/bingo/pkg/cmd/server/component/partial/theme"
+	"github.com/bastean/bingo/pkg/cmd/server/component/script"
+)
+
+templ Index(content templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="description" content="bingo"/>
+			<meta name="keywords" content="bingo"/>
+			<meta name="theme-color" content="#1A1E1D"/>
+			<meta name="apple-mobile-web-app-capable" content="yes"/>
+			<meta
+				name="apple-mobile-web-app-status-bar-style"
+				content="black-translucent"
+			/>
+			<!-- Remove "meta robots" and "robots.txt" rules for SEO -->
+			<meta
+				name="robots"
+				content="noindex, nofollow, noarchive, nositelinkssearchbox, nosnippet, notranslate, noimageindex"
+			/>
+			<!-- Dependencies/Start -->
+			<!-- HTMX -->
+			<script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+			<!-- HTMX/Extensions -->
+			<script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+			<script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
+			<script src="https://unpkg.com/htmx.org/dist/ext/multi-swap.js"></script>
+			<script src="https://unpkg.com/htmx.org/dist/ext/remove-me.js"></script>
+			<script src="https://unpkg.com/htmx.org/dist/ext/alpine-morph.js"></script>
+			<!-- Alpine/Extensions -->
+			<script src="https://cdn.jsdelivr.net/npm/@alpinejs/persist/dist/cdn.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@alpinejs/morph/dist/cdn.min.js"></script>
+			<!-- Alpine -->
+			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js"></script>
+			<!-- Tailwind/Extensions -->
+			<link
+				href="https://cdn.jsdelivr.net/npm/daisyui/dist/full.min.css"
+				rel="stylesheet"
+				type="text/css"
+			/>
+			<!-- Tailwind -->
+			<script src="https://cdn.tailwindcss.com"></script>
+			<!-- Dependencies/End -->
+			<link rel="manifest" href="/public/static/manifest.json"/>
+			<link
+				rel="apple-touch-icon"
+				href="/public/static/assets/apple-touch-icon.png"
+			/>
+			<link rel="icon" href="/public/static/assets/favicon.png"/>
+			<title>bingo</title>
+		</head>
+		<body hx-ext="json-enc, response-targets, multi-swap, remove-me, alpine-morph">
+			@alert.Popup()
+			<div class="fixed top-1 right-1 z-50 md:top-5 md:right-10">
+				@theme.Selector()
+			</div>
+			<div
+				id="main"
+				class="container mx-auto h-screen overflow-y-auto overflow-x-hidden"
+			>
+				@content
+			</div>
+			@script.AddEventListener()
+		</body>
+	</html>
+}

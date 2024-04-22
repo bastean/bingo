@@ -49,6 +49,7 @@ vite.config.ts.timestamp-*
 #* Misc
 ignore*
 report*
+temp*
 tmp*
 
 #* Repository
