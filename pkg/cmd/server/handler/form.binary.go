@@ -12,20 +12,20 @@ import (
 
 func FormBinary() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		body, _  := io.ReadAll(c.Request.Body)
+		body, _ := io.ReadAll(c.Request.Body)
 
 		fmt.Println(string(body))
 
 		query := create.NewQuery("", "")
 
-			response := builder.BinaryCreateHandler.Handle(query)
+		response := builder.BinaryCreateHandler.Handle(query)
 
-			filepath := response.FilePath
+		filepath := response.FilePath
 
-			download := fmt.Sprintf("/download?filepath=%s", filepath)
+		download := fmt.Sprintf("/download?filepath=%s", filepath)
 
-			c.Header("HX-Redirect", download)
+		c.Header("HX-Redirect", download)
 
-			c.Status(http.StatusCreated)
+		c.Status(http.StatusCreated)
 	}
 }

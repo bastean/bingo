@@ -2,8 +2,6 @@ package page
 
 import (
 	"github.com/bastean/bingo/pkg/cmd/server/component/image"
-	"github.com/bastean/bingo/pkg/cmd/server/component/partial/divider"
-	"github.com/bastean/bingo/pkg/cmd/server/component/partial/input"
 )
 
 templ Home() {
@@ -13,21 +11,21 @@ templ Home() {
 		</div>
 		<div class="w-full lg:w-4/5">
 			<div class="w-full">
-				@divider.Divider()
+				<div class="divider"></div>
 			</div>
 			<div class="w-full flex flex-col">
 				<div class="w-full flex justify-start gap-3">
 					<div class="w-1/4">
-						@input.Input(templ.Attributes{"x-data": "", "x-model": "$store.root.Name", "type": "text", "placeholder": "Filename"})
+						<input x-data x-model="$store.root.Name" class="input input-bordered w-full" type="text" placeholder="Filename"/>
 					</div>
 					<div class="grow">
-						@input.Input(templ.Attributes{"x-data": "", "x-model": "$store.root.Description", "type": "text", "placeholder": "Description"})
+						<input x-data x-model="$store.root.Description" class="input input-bordered w-full" type="text" placeholder="Description"/>
 					</div>
 					<button class={ "btn", "btn-primary" } hx-post="/" hx-vals="js:{Command: Alpine.store('root')}" hx-target-error="#alert">Create</button>
 				</div>
 			</div>
 			<div class="w-full">
-				@divider.Divider()
+				<div class="divider"></div>
 			</div>
 		</div>
 	</div>
