@@ -41,7 +41,10 @@ upgrade-reset:
 upgrade:
 	@go run scripts/upgrade/**
 
-#* Installations
+#* Dependencies
+download-deps:
+	@go run scripts/download-deps/**
+
 install-deps:
 	@go mod download
 	@${npm-ci}
@@ -55,7 +58,7 @@ generate-required:
 	@templ generate
 
 #* Initializations
-init: upgrade-managers install-deps generate-required
+init: upgrade-managers download-deps install-deps generate-required
 	
 init-from-zero:
 	@git init
