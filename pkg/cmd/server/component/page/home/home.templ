@@ -85,7 +85,7 @@ templ Page() {
 				Platform
 			</h4>
 			<div class="field">
-				<div class="ui fluid inverted search clearable selection dropdown">
+				<div class="ui fluid inverted search clearable selection dropdown" id="Platform">
 					<input type="hidden" name="Platform"/>
 					<i class="dropdown icon"></i>
 					<div class="default text">Target Platform</div>
@@ -102,20 +102,20 @@ templ Page() {
 			<div class="ui grid">
 				<div class="row">
 					<div class="twelve wide column">
-						<div class="ui vertical animated fluid primary submit button">
+						<button class="ui vertical animated fluid primary submit button">
 							<div class="visible content">Build</div>
 							<div class="hidden content">
 								<i class="hammer icon"></i>
 							</div>
-						</div>
+						</button>
 					</div>
 					<div class="four wide column">
-						<div class="ui animated fluid negative reset button">
+						<button class="ui animated fluid negative reset button">
 							<div class="visible content">Reset</div>
 							<div class="hidden content">
 								<i class="trash icon"></i>
 							</div>
-						</div>
+						</button>
 					</div>
 				</div>
 			</div>

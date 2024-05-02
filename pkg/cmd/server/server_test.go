@@ -4,7 +4,6 @@ import (
 	"context"
 	"log"
 	"os"
-	"strings"
 	"testing"
 
 	"github.com/cucumber/godog"
@@ -60,35 +59,40 @@ func InitializePlaywright() {
 func InitializeScenario(sc *godog.ScenarioContext) {
 	sc.Before(func(ctx context.Context, sc *godog.Scenario) (context.Context, error) {
 		browserCtx.ClearCookies()
+
 		return ctx, nil
 	})
 
 	sc.Given(`^I am on (.+) page$`, func(route string) {
 		_, err = page.Goto(route)
+
 		assert.NoError(err)
 	})
 
 	sc.Then(`^the page title should be (.+)$`, func(expected string) {
 		actual, _ := page.Title()
+
 		assert.Equal(expected, actual)
 	})
 
-	sc.Then(`^I click the (.+) tab$`, func(tab string) {
-		element := page.GetByLabel(tab)
+	sc.Then(`^I fill the (.+) with (.+)$`, func(placeholder, value string) {
+		element := page.GetByPlaceholder(placeholder, playwright.PageGetByPlaceholderOptions{Exact: &exact})
 
-		if ok, _ := element.IsVisible(); ok {
-			err = element.Check()
-		}
+		err = element.Fill(value)
 
 		assert.NoError(err)
 	})
 
-	sc.Then(`^I fill the (.+) with (.+)$`, func(placeholder, value string) {
-		element := page.GetByRole("textbox", playwright.PageGetByRoleOptions{Name: placeholder, Exact: &exact})
+	sc.Then(`^I select the (.+) in (.+)$`, func(dropdown, value string) {
+		element := page.Locator("#" + dropdown).GetByRole("textbox")
 
-		if ok, _ := element.IsVisible(); ok {
-			err = element.Fill(value)
-		}
+		err = element.Click()
+
+		assert.NoError(err)
+
+		element = page.GetByText(value)
+
+		err = element.Click()
 
 		assert.NoError(err)
 	})
@@ -96,32 +100,17 @@ func InitializeScenario(sc *godog.ScenarioContext) {
 	sc.Then(`^I click the (.+) button$`, func(name string) {
 		element := page.GetByRole("button", playwright.PageGetByRoleOptions{Name: name})
 
-		if ok, _ := element.IsVisible(); ok {
-			err = element.Click()
-		}
+		err = element.Click()
 
 		assert.NoError(err)
 	})
 
-	sc.Then(`^I accept the (.+) confirm$`, func(name string) {
-		page.OnDialog(func(dialog playwright.Dialog) {
-			err = dialog.Accept()
-			assert.NoError(err)
-		})
-	})
-
 	sc.Then(`^I see (.+) notification$`, func(expected string) {
-		element := page.GetByRole("alert")
+		element := page.GetByText(expected)
 
-		if ok, _ := element.IsVisible(); ok {
-			actual, _ := element.InnerText()
-			assert.Equal(expected, actual)
-		}
-	})
+		actual, _ := element.InnerText()
 
-	sc.Then(`^I am on (.+) page$`, func(expected string) {
-		actual := page.URL()
-		assert.True(strings.Contains(expected, actual))
+		assert.Equal(expected, actual)
 	})
 }
 

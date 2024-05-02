@@ -84,6 +84,9 @@ test-clean:
 	@go clean -testcache
 	@cd test/ && mkdir -p report
 
+test-codegen:
+	@${npx} playwright codegen http://localhost:8080
+
 test-sync: upgrade-go
 	@${npx} concurrently -s first -k --names 'SUT,TEST' 'make test-sut' '${npx} wait-on -l http-get://localhost:8080 && $(TEST_SYNC)'
 
