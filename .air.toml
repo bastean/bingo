@@ -5,19 +5,26 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./tmp/main"
-  cmd = "make generate-required && go build -buildvcs=false -o ./tmp/main ./cmd/bingo"
+  pre_cmd = ["make generate-required"]
+  cmd = "go build -buildvcs=false -o ./tmp/main ./cmd/bingo"
+  post_cmd = []
   delay = 1000
-  exclude_dir = []
+  exclude_dir = [
+    "pkg/cmd/server/static/dist",
+    "pkg/context/binary/infrastructure/compiler/app",
+    "pkg/context/binary/infrastructure/compiler/embed"
+  ]
   exclude_file = []
   exclude_regex = [
-    "^.*_test.go$",
-    "^.*_templ.go$"
+    "^.*_test\\.go$",
+    "^.*\\.mother\\.go$",
+    "^.*_templ\\.go$"
   ]
   exclude_unchanged = false
   follow_symlink = false
   full_bin = ""
   include_dir = [
-    "pkg/cmd/server"
+    "pkg"
   ]
   include_ext = [
     "go",
@@ -31,8 +38,6 @@ tmp_dir = "tmp"
   log = "build-errors.log"
   poll = false
   poll_interval = 0
-  post_cmd = []
-  pre_cmd = []
   rerun = false
   rerun_delay = 500
   send_interrupt = true

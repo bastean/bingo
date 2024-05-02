@@ -1,9 +1,10 @@
 package middleware
 
 import (
+	"fmt"
 	"net/http"
 
-	"github.com/bastean/bingo/pkg/cmd/server/component/partial/alert"
+	"github.com/bastean/bingo/pkg/cmd/server/util"
 	"github.com/bastean/bingo/pkg/context/shared/domain/errors"
 	"github.com/gin-gonic/gin"
 )
@@ -16,11 +17,10 @@ func ErrorHandler(c *gin.Context, err any) {
 		code = http.StatusUnprocessableEntity
 	default:
 		code = http.StatusInternalServerError
+		err = fmt.Errorf("internal error: please try again later")
 	}
 
-	c.Status(code)
-
-	alert.Message("error", err.(error).Error()).Render(c.Request.Context(), c.Writer)
+	c.JSON(code, util.JSONResponse(false, err.(error).Error(), struct{}{}))
 
 	c.Abort()
 }

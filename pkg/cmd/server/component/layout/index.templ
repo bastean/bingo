@@ -1,15 +1,14 @@
 package layout
 
 import (
-	"github.com/bastean/bingo/pkg/cmd/server/component/partial/alert"
-	"github.com/bastean/bingo/pkg/cmd/server/component/partial/theme"
-	"github.com/bastean/bingo/pkg/cmd/server/component/script"
+	"github.com/bastean/bingo/pkg/cmd/server/component/script/fomantic"
 )
 
-templ Index(content templ.Component) {
+templ Index(headScript templ.Component, bodyContent templ.Component, bodyScript templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
+			<!-- Meta -->
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<meta name="description" content="bingo"/>
@@ -25,49 +24,37 @@ templ Index(content templ.Component) {
 				name="robots"
 				content="noindex, nofollow, noarchive, nositelinkssearchbox, nosnippet, notranslate, noimageindex"
 			/>
-			<!-- Dependencies/Start -->
-			<!-- HTMX -->
-			<script src="/public/static/vendor/htmx.org/htmx.min.js"></script>
-			<!-- HTMX/Extensions -->
-			<script src="/public/static/vendor/htmx.org/ext/json-enc.js"></script>
-			<script src="/public/static/vendor/htmx.org/ext/response-targets.js"></script>
-			<script src="/public/static/vendor/htmx.org/ext/multi-swap.js"></script>
-			<script src="/public/static/vendor/htmx.org/ext/remove-me.js"></script>
-			<script src="/public/static/vendor/htmx.org/ext/alpine-morph.js"></script>
-			<!-- Alpine/Extensions -->
-			<script src="/public/static/vendor/alpinejs.dev/ext/persist.min.js"></script>
-			<script src="/public/static/vendor/alpinejs.dev/ext/morph.min.js"></script>
-			<!-- Alpine -->
-			<script defer src="/public/static/vendor/alpinejs.dev/alpine.min.js"></script>
-			<!-- Fomantic-UI -->
-			<script src="/public/static/vendor/jquery.com/jquery.min.js"></script>
-			<link
-				rel="stylesheet"
-				type="text/css"
-				href="/public/static/vendor/fomantic-ui.com/semantic.min.css"
-			/>
-			<script src="/public/static/vendor/fomantic-ui.com/semantic.min.js"></script>
-			<!-- Dependencies/End -->
+			<!-- Properties -->
+			<title>bingo</title>
 			<link rel="manifest" href="/public/static/manifest.json"/>
 			<link
 				rel="apple-touch-icon"
 				href="/public/static/assets/apple-touch-icon.png"
 			/>
 			<link rel="icon" href="/public/static/assets/favicon.png"/>
-			<title>bingo</title>
+			<!-- Dependencies -->
+			<!-- jQuery -->
+			<script src="/public/static/dist/jquery.com/jquery.min.js"></script>
+			<!-- Fomantic-UI -->
+			<link
+				rel="stylesheet"
+				type="text/css"
+				href="/public/static/dist/fomantic-ui.com/semantic.min.css"
+			/>
+			<script src="/public/static/dist/fomantic-ui.com/semantic.min.js"></script>
+			<!-- Lodash -->
+			<script src="/public/static/dist/lodash.com/lodash.min.js"></script>
+			<!-- Scripts -->
+			<!-- Fomantic-UI -->
+			@fomantic.Init()
+			<!-- Any -->
+			@headScript
 		</head>
-		<body hx-ext="json-enc, response-targets, multi-swap, remove-me, alpine-morph">
-			@alert.Popup()
-			<div class="fixed top-1 right-1 z-50 md:top-5 md:right-10">
-				@theme.Selector()
+		<body>
+			<div class="ui basic inverted vertical segment" style="height: 100%; overflow-y: auto;">
+				@bodyContent
 			</div>
-			<div
-				id="main"
-				class="container mx-auto h-screen overflow-y-auto overflow-x-hidden"
-			>
-				@content
-			</div>
-			@script.AddEventListener()
+			@bodyScript
 		</body>
 	</html>
 }

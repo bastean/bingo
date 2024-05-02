@@ -6,18 +6,23 @@ import (
 	"github.com/bastean/bingo/pkg/context/binary/domain/valueObject"
 )
 
-type Root struct {
+type Binary struct {
+	*valueObject.Platform
+	*valueObject.Filename
 	*model.Command
 }
 
-func create(name, description string) *Root {
-	nameVO := valueObject.NewFilename(name)
+func create(os, arch, filename, description string) *Binary {
+	platformVO := valueObject.NewPlatform(os, arch)
+	filenameVO := valueObject.NewFilename(filename)
 	descriptionVO := valueObject.NewDescription(description)
 
-	return &Root{
-		&model.Command{
+	return &Binary{
+		Platform: platformVO,
+		Filename: filenameVO,
+		Command: &model.Command{
 			Data: &model.Data{
-				Name:        nameVO.Value,
+				Name:        filenameVO.Value,
 				Description: descriptionVO.Value,
 				Switch:      true,
 			},
@@ -33,6 +38,6 @@ func create(name, description string) *Root {
 	}
 }
 
-func NewRoot(name, description string) *Root {
-	return create(name, description)
+func NewBinary(os, arch, filename, description string) *Binary {
+	return create(os, arch, filename, description)
 }

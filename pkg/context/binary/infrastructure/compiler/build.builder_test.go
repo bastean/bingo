@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/bastean/bingo/pkg/context/binary/domain/aggregate"
+	aggregateMother "github.com/bastean/bingo/pkg/context/binary/domain/aggregate/mother"
 	"github.com/bastean/bingo/pkg/context/binary/domain/builder"
 	"github.com/bastean/bingo/pkg/context/binary/infrastructure/compiler"
 	"github.com/stretchr/testify/suite"
@@ -21,7 +21,7 @@ func (suite *BinaryBuilderTestSuite) SetupTest() {
 }
 
 func (suite *BinaryBuilderTestSuite) TestBuild() {
-	binary := aggregate.NewRoot("", "")
+	binary := aggregateMother.Empty()
 
 	expected := `Example service for generating cross-platform custom executable binary
 

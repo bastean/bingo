@@ -1,0 +1,110 @@
+package home
+
+script FormBinary() {
+    $(document)
+        .ready(function() {
+            $("#settings")
+                .form({
+                    preventLeaving: true,
+                    inline : true,
+                    fields: {
+                        Filename: {
+                            rules: [
+                                {
+                                    type   : "size[1..50]"
+                                },
+                                {
+                                    type   : "regExp[/^[A-Za-z0-9_-]{1,50}$/]",
+                                    prompt : "{name} special characters allowed: _ -"
+                                }
+                            ]
+                        },
+                        Description: {
+                            rules: [
+                                {
+                                    type   : "size[1..100]"
+                                },
+                                {
+                                    type   : "regExp[/^[A-Za-z0-9_ .:-]{1,100}$/]",
+                                    prompt : "{name} special characters allowed: _ - . :"
+                                }
+                            ]
+                        },
+                        Platform: {
+                            rules: [
+                                {
+                                    type   : "exactCount[1]",
+                                    prompt : "Please select a target platform"
+                                },
+                            ]
+                        },
+                    }
+                })
+                .api({
+                    action: "build binary",
+                    method: "POST",
+                    contentType: "application/json; charset=UTF-8",
+                    serializeForm: true,
+                    beforeSend: function(settings) {
+                        let commands = _.toArray(_.omitBy(settings.data, _.isString));
+
+                        let fmtData = _.omitBy(settings.data, _.isObject);
+
+                        [os, arch] = _.split(fmtData.Platform, " ");
+
+                        fmtData.Platform = {
+                            OS: os,
+                            Arch: arch,
+                        };
+
+                        fmtData.Subcommands = _.map(commands, function(command) {
+                            let cmd = {
+                                Name: command.Name,
+                                Flags: [],
+                            };
+
+                            let flags = _.split(command.Flags, ",")
+
+                            _.each(flags, function(value) {
+                                if (value == "") {
+                                    return
+                                }
+
+                                let flag = {
+                                    Name: value,
+                                    Switch: true,
+                                };
+
+                                cmd.Flags.push(flag);
+                            });
+
+                            cmd.Switch = cmd.Flags.length != 0;
+
+                            return cmd;
+                        });
+
+                        settings.data = JSON.stringify(fmtData);
+
+                        return settings;
+                    },
+                    onSuccess: function(response, element, xhr) {
+                        $.toast({
+                            class: 'success',
+                            message: response.message,
+                            showProgress: 'top',
+                        });
+
+                        _.delay(function() {
+                            window.location.replace(response.data.Url);
+                        }, 3000);
+                    },
+                    onFailure: function(response, element, xhr) {
+                        $.toast({
+                            class: 'error',
+                            message: response.message,
+                            showProgress: 'top'
+                        });
+                    },
+                });
+        });
+}

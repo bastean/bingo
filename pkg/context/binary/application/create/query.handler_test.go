@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/bastean/bingo/pkg/context/binary/application/create"
+	queryMother "github.com/bastean/bingo/pkg/context/binary/application/create/mother"
 	"github.com/bastean/bingo/pkg/context/binary/domain/valueObject"
 	compilerMock "github.com/bastean/bingo/pkg/context/binary/infrastructure/compiler/mock"
 	"github.com/stretchr/testify/suite"
@@ -23,19 +24,15 @@ func (suite *BinaryCreateTestSuite) SetupTest() {
 }
 
 func (suite *BinaryCreateTestSuite) TestCreate() {
-	name := "success"
+	// TODO?: binary := aggregateMother.Random()
 
-	description := "success"
+	// TODO?: service.Switcher(binary.Command, query.Command)
+
+	// TODO?: suite.builder.On("Build", binary).Return(filepath)
 
 	filepath := valueObject.NewFilepath("/build/success")
 
-	query := create.NewQuery(name, description)
-
-	// TODO?: root := aggregate.NewRoot(name, description)
-
-	// TODO?: service.Switcher(root.Command, query.Command)
-
-	// TODO?: suite.builder.On("Build", root).Return(filepath)
+	query := queryMother.Random()
 
 	suite.builder.On("Build").Return(filepath)
 

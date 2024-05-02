@@ -10,17 +10,19 @@ type QueryHandler struct {
 }
 
 func (handler *QueryHandler) Handle(query *Query) *Response {
+	query.Command.Name = query.Filename
+
 	query.Command.Switch = true
 
-	root := aggregate.NewRoot(query.Command.Name, query.Command.Description)
+	binary := aggregate.NewBinary(query.Platform.OS, query.Platform.Arch, query.Filename, query.Command.Description)
 
-	model := root.Command
+	model := binary.Command
 
 	switches := query.Command
 
 	service.Switcher(model, switches)
 
-	filePath := handler.Create.Run(root)
+	filePath := handler.Create.Run(binary)
 
 	return NewResponse(filePath.Value)
 }

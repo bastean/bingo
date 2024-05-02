@@ -30,7 +30,7 @@ upgrade-go:
 	@go get -t -u ./...
 
 upgrade-node:
-	@${npx} ncu -u
+	@${npx} ncu --root -ws -u
 	@rm -f package-lock.json
 	@npm i --legacy-peer-deps
 
@@ -39,12 +39,9 @@ upgrade-reset:
 	@${npm-ci}
 
 upgrade:
-	@go run scripts/upgrade/**
+	@go run ./scripts/upgrade
 
 #* Dependencies
-download-deps:
-	@go run scripts/download-deps/**
-
 install-deps:
 	@go mod download
 	@${npm-ci}
@@ -52,13 +49,16 @@ install-deps:
 	@go install github.com/a-h/templ/cmd/templ@latest
 	@curl -sSfL https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sh -s -- -b /usr/local/bin v3.63.11
 
+copy-deps:
+	@go run ./scripts/copy-deps
+
 #* Generators
 generate-required:
 	@go generate ./...
 	@templ generate
 
 #* Initializations
-init: upgrade-managers download-deps install-deps generate-required
+init: upgrade-managers install-deps copy-deps generate-required
 	
 init-from-zero:
 	@git init
@@ -140,7 +140,7 @@ sync-env-reset:
 	@${git-reset-hard}
 
 sync-env:
-	@cd deployments && go run ../scripts/sync-env/**
+	@cd deployments && go run ../scripts/sync-env
 
 #* Git
 commit:

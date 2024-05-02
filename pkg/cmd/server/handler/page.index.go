@@ -2,13 +2,13 @@ package handler
 
 import (
 	"github.com/bastean/bingo/pkg/cmd/server/component/layout"
-	"github.com/bastean/bingo/pkg/cmd/server/component/page"
+	"github.com/bastean/bingo/pkg/cmd/server/component/page/home"
+	"github.com/bastean/bingo/pkg/cmd/server/component/script"
 	"github.com/gin-gonic/gin"
 )
 
 func IndexPage() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.Header("HX-Push-Url", "/")
-		layout.Index(page.Home()).Render(c.Request.Context(), c.Writer)
+		layout.Index(home.FormBinary(), home.Page(), script.Empty()).Render(c.Request.Context(), c.Writer)
 	}
 }

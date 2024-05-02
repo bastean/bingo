@@ -10,8 +10,8 @@ type BuilderMock struct {
 	mock.Mock
 }
 
-func (mock *BuilderMock) Build(root *aggregate.Root) *valueObject.Filepath {
-	// TODO?: args := mock.Called(root)
+func (mock *BuilderMock) Build(binary *aggregate.Binary) *valueObject.Filepath {
+	// TODO?: args := mock.Called(binary)
 
 	args := mock.Called()
 

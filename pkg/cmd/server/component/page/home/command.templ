@@ -1,0 +1,31 @@
+package home
+
+import (
+	"strings"
+)
+
+templ Command(command, tooltip string, flags map[string]string) {
+	<div class="ui inverted raised segment">
+		<input name={ command + "[Name]" } value={ strings.ToLower(command) } style="display: none;"/>
+		<div class="ui invisible checkbox" data-tooltip={ tooltip }>
+			<input type="checkbox" id={ command } name={ command + "[Switch]" }/>
+			<label for={ command } class="ui fluid green button"><span class="ui large text">{ command }</span></label>
+		</div>
+		<h4 class="ui horizontal inverted divider header">
+			Flags
+		</h4>
+		<div class="ui fluid inverted multiple search clearable selection dropdown">
+			<input type="hidden" name={ command + "[Flags]" }/>
+			<i class="dropdown icon"></i>
+			<div class="default text">Flag List</div>
+			<div class="menu">
+				for flag, description := range flags {
+					<div class="vertical item" data-value={ flag }>
+						<span class="description">{ description }</span>
+						<span class="text">{ "--"+flag }</span>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+}

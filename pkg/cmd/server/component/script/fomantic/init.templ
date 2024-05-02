@@ -1,0 +1,18 @@
+package fomantic
+
+script Init() {
+    $(document)
+        .ready(function() {
+            $.fn.api.settings.api = {
+                'build binary' : '/',
+            };
+            
+            $.fn.api.settings.successTest = function(response) {
+                if(response && response.success) {
+                    return response.success;
+                }
+                
+                return false;
+            };
+        });
+}

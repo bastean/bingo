@@ -1,0 +1,124 @@
+package home
+
+templ Page() {
+	<div class="ui centered container" style="margin-top: 12px; margin-bottom: 12px;">
+		<img class="ui centered medium image" src="/public/static/assets/logo.png"/>
+		<h4 class="ui horizontal inverted divider header">
+			<i class="tools icon"></i>
+			Settings
+		</h4>
+		<form class="ui inverted form" id="settings">
+			<h4 class="ui inverted dividing header">
+				<i class="settings icon"></i>
+				Properties
+			</h4>
+			<div class="fields">
+				<div class="required six wide field">
+					<label>Filename</label>
+					<input type="text" name="Filename" placeholder="Filename"/>
+				</div>
+				<div class="required ten wide field">
+					<label>Description</label>
+					<input type="text" name="Description" placeholder="Description"/>
+				</div>
+			</div>
+			<h4 class="ui inverted dividing header">
+				<i class="terminal icon"></i>
+				Commands
+			</h4>
+			<div class="three inline fields">
+				<div class="field">
+					@Command("Person", "Generate random person information", map[string]string{
+						"firstName": "Generate random first name",
+						"lastName":  "Generate random last name",
+						"ssn":       "Generate random ssn",
+						"email":     "Generate random email",
+						"phone":     "Generate random phone",
+					})
+				</div>
+				<div class="field">
+					@Command("Address", "Generate random address information", map[string]string{
+						"country": "Generate random country",
+						"state":   "Generate random state",
+						"city":    "Generate random city",
+						"street":  "Generate random street",
+						"zip":     "Generate random zip",
+					})
+				</div>
+				<div class="field">
+					@Command("Payment", "Generate random payment information", map[string]string{
+						"creditCardNumber":  "Generate random credit card number",
+						"creditCardCvv":     "Generate random credit card cvv",
+						"creditCardExp":     "Generate random credit card exp",
+						"bitcoinAddress":    "Generate random bitcoin address",
+						"bitcoinPrivateKey": "Generate random bitcoin private key",
+					})
+				</div>
+			</div>
+			<div class="three inline fields">
+				<div class="field">
+					@Command("Internet", "Generate random internet information", map[string]string{
+						"url":          "Generate random url",
+						"domainName":   "Generate random domain name",
+						"domainSuffix": "Generate random domain suffix",
+						"macAddress":   "Generate random mac address",
+						"userAgent":    "Generate random user agent",
+					})
+				</div>
+				<div class="field">
+					@Command("Language", "Generate random language information", map[string]string{
+						"programmingLanguage":     "Generate random programming language",
+						"bestProgrammingLanguage": "Generate best programming language",
+					})
+				</div>
+				<div class="field">
+					@Command("Animal", "Generate random animal information", map[string]string{
+						"petName": "Generate random pet name",
+						"cat":     "Generate random cat",
+						"dog":     "Generate random dog",
+						"bird":    "Generate random bird",
+					})
+				</div>
+			</div>
+			<h4 class="ui inverted dividing header">
+				<i class="bullseye icon"></i>
+				Platform
+			</h4>
+			<div class="field">
+				<div class="ui fluid inverted search clearable selection dropdown">
+					<input type="hidden" name="Platform"/>
+					<i class="dropdown icon"></i>
+					<div class="default text">Target Platform</div>
+					<div class="menu">
+						<div class="item" data-value="linux amd64"><i class="linux icon"></i>Linux 64-bit</div>
+						<div class="item" data-value="linux 386"><i class="linux icon"></i>Linux 32-bit</div>
+						<div class="item" data-value="windows amd64"><i class="windows icon"></i>Windows 64-bit</div>
+						<div class="item" data-value="windows 386"><i class="windows icon"></i>Windows 32-bit</div>
+						<div class="item" data-value="darwin amd64"><i class="apple icon"></i>macOS 64-bit</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui divider"></div>
+			<div class="ui grid">
+				<div class="row">
+					<div class="twelve wide column">
+						<div class="ui vertical animated fluid primary submit button">
+							<div class="visible content">Build</div>
+							<div class="hidden content">
+								<i class="hammer icon"></i>
+							</div>
+						</div>
+					</div>
+					<div class="four wide column">
+						<div class="ui animated fluid negative reset button">
+							<div class="visible content">Reset</div>
+							<div class="hidden content">
+								<i class="trash icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+}
