@@ -13,7 +13,7 @@ var router = gin.Default()
 func New(files *embed.FS) *gin.Engine {
 	router.Use(middleware.SecurityConfig())
 
-	// TODO!: router.Use(middleware.RateLimiter())
+	router.Use(middleware.RateLimiter())
 
 	fs := http.FS(files)
 

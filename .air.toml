@@ -12,7 +12,8 @@ tmp_dir = "tmp"
   exclude_dir = [
     "pkg/cmd/server/static/dist",
     "pkg/context/binary/infrastructure/compiler/app",
-    "pkg/context/binary/infrastructure/compiler/embed"
+    "pkg/context/binary/infrastructure/compiler/embed",
+    "pkg/context/binary/infrastructure/compiler/temp"
   ]
   exclude_file = []
   exclude_regex = [
