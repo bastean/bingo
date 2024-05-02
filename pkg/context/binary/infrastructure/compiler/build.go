@@ -98,7 +98,7 @@ func (build *BinaryBuild) Build(binary *aggregate.Binary) *valueObject.Filepath 
 
 	output := filepath.Join("build", binary.Filename.Value)
 
-	build.runCommand([]string{targetOS, targetArch}, "go", "build", "-C", build.TempDir, "-mod", "vendor", "-o", output, entrypointFilename)
+	build.runCommand([]string{targetOS, targetArch}, "go", "build", "-C", build.TempDir, "-ldflags", "-s -w", "-mod", "vendor", "-o", output, entrypointFilename)
 
 	filePath := filepath.Join(build.TempDir, output)
 
