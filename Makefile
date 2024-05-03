@@ -162,6 +162,12 @@ WARNING-git-genesis:
 docker-usage:
 	@docker system df
 
+demo-down:
+	@${compose-env} .env.demo down
+
+demo: demo-down
+	@${compose-env} .env.demo up
+
 compose-dev-down:
 	@${compose-env} .env.dev down
 
@@ -172,7 +178,7 @@ compose-test-down:
 	@${compose-env} .env.test down
 
 compose-test-acceptance: compose-test-down
-	@${compose-env} .env.test --env-file .env.example.test.acceptance up --exit-code-from server
+	@${compose-env} .env.test --env-file .env.demo.test.acceptance up --exit-code-from server
 
 compose-test-all: compose-test-down
 	@${compose-env} .env.test up --exit-code-from server

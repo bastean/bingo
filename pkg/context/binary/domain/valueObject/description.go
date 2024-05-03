@@ -26,7 +26,7 @@ func ensureIsValidDescription(description string) {
 
 func NewDescription(description string) *Description {
 	if description == "" {
-		description = "Example service for generating cross-platform custom executable binary"
+		description = "Example service for generating custom cross-compile executable binaries"
 	}
 
 	description = strings.TrimSpace(description)

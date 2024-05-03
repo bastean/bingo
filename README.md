@@ -8,12 +8,9 @@
 
 <div align="center">
 
-> Example service for generating cross-platform custom executable binary
+> Example service for generating custom cross-compile executable binaries
 
 </div>
-
-> [!WARNING]
-> This project is in the early stages of development
 
 <br />
 
@@ -41,68 +38,69 @@
 
 </div>
 
-## Features
+## Usage
 
-- Project Layout
+```bash
+make demo
+```
 
-  - Based on [Standard Go Project Layout](https://github.com/golang-standards/project-layout)
+### Screenshots
 
-- Message Broker
+<div align="center">
 
-  - Routing Key (based on [AsyncAPI Topic Definition](https://github.com/fmvilas/topic-definition))
+<img src="assets/readme/desktop-home.png" />
 
-- Devcontainer
+<img src="assets/readme/desktop-home-settings.png" />
 
-  - Features
-  - Extensions & Settings
+</div>
 
-- Docker
+### Binary
 
-  - Dockerfile
-    - Multistage
-  - Compose
-    - Setup by ENV
+```bash
+chmod +x bingo
+```
 
-- GitHub
+```bash
+./bingo --help
+```
 
-  - Actions & Workflows
-    - Setup Languages and Dependencies
-    - Secrets Scanning ([TruffleHog Action](https://github.com/trufflesecurity/trufflehog?tab=readme-ov-file#octocat-trufflehog-github-action)), Linting & Test Checks
-    - Upgrade Dependencies
-    - Automate Release
-  - Issue Templates (Defaults)
+```text
+Example service for generating custom cross-compile executable binaries
 
-- Git
+Usage:
+  bingo [flags]
+  bingo [command]
 
-  - Hooks
-    - Pre-Commit
-      - Secrets Scanning ([TruffleHog CLI](https://github.com/trufflesecurity/trufflehog?tab=readme-ov-file#8-scan-individual-files-or-directories)) & Formatting
-    - Commit-Msg
-      - Check [Conventional Commits](https://www.conventionalcommits.org) rules
+Available Commands:
+  animal      Generate random animal information
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  internet    Generate random internet information
+  language    Generate random language information
+  payment     Generate random payment information
+  person      Generate random person information
 
-- Releases
+Flags:
+  -h, --help   help for bingo
 
-  - Automatically
-    - Hooks
-      - Linting & Test Checks
-    - Bump Version (based on [Conventional Commits](https://www.conventionalcommits.org) & [SemVer](https://semver.org/))
-    - CHANGELOG
-    - Commit & Tag
-    - GitHub Release
+Use "bingo [command] --help" for more information about a command.
+```
 
-- Security
+```bash
+./bingo person --help
+```
 
-  - Account confirmation via email
-  - Password hashing ([Bcrypt](https://pkg.go.dev/golang.org/x/crypto/bcrypt))
+```text
+Generate random person information
 
-- Scripts
+Usage:
+  bingo person [flags]
 
-  - [sync-env](scripts/sync-env/sync-env.go)
-    - Synchronize all **.env\*** files in the directory using an **.env** model
-  - [upgrade](scripts/upgrade/upgrade.go)
-    1. Upgrade Go and Node dependencies
-    2. Linting and Testing
-    3. Commit changes
+Flags:
+      --email   Generate random email
+  -h, --help    help for person
+      --phone   Generate random phone
+```
 
 ## First Steps
 
@@ -168,34 +166,8 @@ git clone git@github.com:bastean/bingo.git && cd bingo
 2. Run
 
    ```bash
-   make from-zero
+   make init-from-zero
    ```
-
-### Repository
-
-#### Settings
-
-- Actions
-
-  - General
-
-    - Workflow permissions
-
-      - [x] Read and write permissions
-
-- Secrets and variables
-
-  - Actions
-
-    - New repository secret
-
-      - BOT_GPG_PRIVATE_KEY
-
-        ```bash
-        gpg --armor --export-secret-key [Pub_Key_ID (*-BOT)]
-        ```
-
-      - BOT_GPG_PASSPHRASE
 
 ### Run
 
@@ -228,7 +200,7 @@ make compose-dev
 - Integration
 
   ```bash
-  make compose-test-integration
+  make test-integration
   ```
 
 - Acceptance
@@ -249,34 +221,13 @@ make compose-dev
 make compose-prod
 ```
 
-## Screenshots
-
-<div align="center">
-
-<img src="assets/readme/desktop-welcome.png" />
-
-<img src="assets/readme/desktop-dashboard.png" />
-
-<img width="49%" src="assets/readme/mobile-welcome.png" />
-
-<img width="49%" src="assets/readme/mobile-dashboard.png" />
-
-<img src="assets/readme/mail-confirm-account.png" />
-
-</div>
-
 ## Tech Stack
 
 #### Base
 
 - [Go](https://go.dev)
 - [templ](https://templ.guide)
-  - [htmx](https://htmx.org)
-  - [Alpine.js](https://alpinejs.dev)
-  - [Tailwind CSS](https://tailwindcss.com)
-    - [daisyUI](https://daisyui.com)
-- [MongoDB](https://www.mongodb.com)
-- [RabbitMQ](https://www.rabbitmq.com)
+  - [Fomantic-UI](https://fomantic-ui.com)
 
 #### Please see
 
