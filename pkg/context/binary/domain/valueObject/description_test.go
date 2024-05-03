@@ -22,7 +22,7 @@ func (suite *DescriptionValueObjectTestSuite) TestDescription() {
 }
 
 func (suite *DescriptionValueObjectTestSuite) TestDescriptionDefault() {
-	expected := "Example service for generating cross-platform custom executable binary"
+	expected := "Example service for generating custom cross-compile executable binaries"
 
 	actual := valueObjectMother.EmptyDescription().Value
 
